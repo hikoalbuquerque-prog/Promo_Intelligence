@@ -1,0 +1,389 @@
+/* ============================================================
+   COMPONENTS.CSS — Cards, botões, badges, inputs, status
+   ============================================================ */
+
+/* ---- Botões ---- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--radius);
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+  min-height: 54px;
+  letter-spacing: 0.3px;
+}
+
+.btn:active { transform: scale(0.97); opacity: 0.9; }
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary  { background: var(--accent);  color: #fff; }
+.btn-success  { background: var(--green);   color: #fff; }
+.btn-danger   { background: var(--red);     color: #fff; }
+.btn-warning  { background: var(--yellow);  color: #1a1a2e; }
+.btn-purple   { background: var(--purple);  color: #fff; }
+.btn-ghost    { background: var(--card);    color: var(--text); border: 1px solid var(--border); }
+.btn-sm       { padding: 10px 14px; font-size: 14px; min-height: 40px; border-radius: var(--radius-sm); }
+
+/* ---- Cards ---- */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.card-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.card-sub {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 4px;
+}
+
+/* ---- Status badge ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.badge-green  { background: rgba(46,204,113,0.18); color: var(--green); }
+.badge-yellow { background: rgba(241,196,15,0.18);  color: var(--yellow); }
+.badge-red    { background: rgba(231,76,60,0.18);   color: var(--red); }
+.badge-blue   { background: rgba(79,142,247,0.18);  color: var(--accent); }
+.badge-purple { background: rgba(155,89,182,0.18);  color: var(--purple); }
+.badge-gray   { background: rgba(108,122,141,0.18); color: var(--gray); }
+
+/* ---- Status FSM → badge ---- */
+.status-EM_ATIVIDADE   { @extend .badge-green; }
+.status-ACEITO         { @extend .badge-blue; }
+.status-PAUSADO        { @extend .badge-yellow; }
+.status-ENCERRADO      { @extend .badge-gray; }
+.status-REALOCADO      { @extend .badge-purple; }
+.status-SEM_SLOT       { @extend .badge-gray; }
+
+/* ---- Input ---- */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+}
+
+.input {
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 15px;
+  padding: 13px 14px;
+  width: 100%;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.input:focus { border-color: var(--accent); }
+
+.input::placeholder { color: var(--gray); }
+
+textarea.input { resize: vertical; min-height: 80px; }
+
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236c7a8d' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+select.input option { background: var(--bg2); }
+
+/* ---- Info row ---- */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+
+.info-row:last-child { border-bottom: none; }
+
+.info-label {
+  font-size: 13px;
+  color: var(--text2);
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* ---- GPS indicator ---- */
+.gps-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.gps-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.gps-dot.waiting  { background: var(--yellow); animation: pulse 1.2s ease-in-out infinite; }
+.gps-dot.ok       { background: var(--green); }
+.gps-dot.error    { background: var(--red); }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ---- Score card ---- */
+.score-card {
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--card2) 100%);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.score-icon {
+  font-size: 36px;
+  flex-shrink: 0;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 3px;
+}
+
+/* ---- Slot resumo card ---- */
+.slot-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slot-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.slot-local {
+  font-size: 16px;
+  font-weight: 700;
+  flex: 1;
+  padding-right: 10px;
+}
+
+.slot-horario {
+  font-size: 13px;
+  color: var(--text2);
+}
+
+/* ---- Solicitação card ---- */
+.sol-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sol-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sol-tipo {
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sol-meta {
+  font-size: 12px;
+  color: var(--text2);
+}
+
+/* ---- Empty state ---- */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-icon { font-size: 48px; opacity: 0.5; }
+.empty-label { font-size: 15px; color: var(--text2); }
+
+/* ---- Toggle ---- */
+.toggle-group {
+  display: flex;
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text2);
+  transition: all var(--transition);
+}
+
+.toggle-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---- Divider ---- */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+/* ---- Section label ---- */
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin-bottom: 8px;
+}
+
+/* ---- Delta score feedback ---- */
+.score-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.score-delta.pos { color: var(--green); }
+.score-delta.neg { color: var(--red); }
+
+/* ---- Action grid (home buttons) ---- */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.action-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.action-btn:active { background: var(--card2); }
+.action-btn .icon  { font-size: 26px; }
+
+.action-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  grid-column: span 2;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 16px;
+  padding: 18px;
+}
