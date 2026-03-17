@@ -1,0 +1,62 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JET Promo Intelligence">
+  <defs>
+    <linearGradient id="jetBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4db1ff"/>
+      <stop offset="100%" stop-color="#0b4ec2"/>
+    </linearGradient>
+    <linearGradient id="barBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fa9ff"/>
+      <stop offset="100%" stop-color="#0b2c6f"/>
+    </linearGradient>
+    <linearGradient id="barYellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffc629"/>
+      <stop offset="100%" stop-color="#9a5b00"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ccf74"/>
+      <stop offset="100%" stop-color="#1f6e3d"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#000"/>
+
+  <g transform="translate(140 160)">
+    <rect x="520" y="260" width="65" height="130" fill="url(#barGreen)"/>
+    <rect x="595" y="235" width="65" height="155" fill="url(#barGreen)"/>
+    <rect x="670" y="190" width="65" height="200" fill="url(#barYellow)"/>
+    <rect x="745" y="135" width="65" height="255" fill="url(#barBlue)"/>
+
+    <path d="M55 390 C150 440, 320 350, 520 265 C605 230, 665 170, 790 50" stroke="#f4f7ff" stroke-width="14" fill="none" stroke-linecap="round"/>
+    <polygon points="770,54 822,44 806,93" fill="#f4f7ff"/>
+
+    <g fill="#fff" opacity="0.92">
+      <circle cx="72" cy="390" r="5"/><circle cx="92" cy="398" r="6"/><circle cx="115" cy="404" r="7"/>
+      <circle cx="142" cy="407" r="8"/><circle cx="172" cy="406" r="9"/><circle cx="206" cy="401" r="10"/>
+      <circle cx="244" cy="392" r="11"/><circle cx="286" cy="380" r="12"/><circle cx="332" cy="365" r="13"/>
+      <circle cx="380" cy="347" r="14"/><circle cx="430" cy="326" r="15"/><circle cx="483" cy="303" r="16"/>
+      <circle cx="545" cy="275" r="17"/>
+    </g>
+
+    <g fill="url(#jetBlue)">
+      <path d="M160 188 C191 188 216 213 216 244 C216 295 160 350 160 350 C160 350 104 295 104 244 C104 213 129 188 160 188 Z"/>
+      <path d="M330 130 C372 130 406 164 406 206 C406 273 330 346 330 346 C330 346 254 273 254 206 C254 164 288 130 330 130 Z"/>
+      <path d="M500 55 C553 55 596 98 596 151 C596 235 500 326 500 326 C500 326 404 235 404 151 C404 98 447 55 500 55 Z"/>
+    </g>
+    <g fill="#000">
+      <circle cx="160" cy="242" r="22"/><circle cx="330" cy="204" r="28"/><circle cx="500" cy="146" r="38"/>
+    </g>
+
+    <g filter="url(#glow)">
+      <circle cx="160" cy="350" r="5" fill="#8af6ff"/>
+      <circle cx="330" cy="346" r="5" fill="#8af6ff"/>
+      <circle cx="500" cy="326" r="6" fill="#8af6ff"/>
+    </g>
+  </g>
+
+  <text x="220" y="760" font-size="200" font-family="Arial, Helvetica, sans-serif" font-style="italic" font-weight="900" fill="url(#jetBlue)">JET</text>
+  <text x="215" y="845" font-size="56" letter-spacing="13" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#f2f4f8">PROMO INTELLIGENCE</text>
+</svg>
